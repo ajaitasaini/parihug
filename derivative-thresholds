@@ -1,0 +1,40 @@
+#include <iostream>
+#include <ctime>
+#include <cstdio>
+#include <chrono>
+
+typedef std::chrono::high_resolution_clock Clock; 
+using namespace std;
+
+int main() {
+
+	//cin input sensor values 
+	//use time to determine when the sensor value came in 
+	//take different time intervals and find the speed difference 
+	//take the delta of the speed difference 
+	//add it to the base value 
+	//if the base value is between a certain interval, the bear will vibrate a
+	//certain amount
+
+	double sensor1, sensor2, sensor3; 
+	cin >> sensor1; 
+	cin >> sensor2; 
+	cin >> sensor3;
+	double diff1, diff2; 
+	double delta; 
+	auto t1 = Clock::now(); 
+	auto t2 = Clock::now();
+	auto t3 = Clock::now();
+
+	diff1 = chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count(); 
+	diff2 = chrono::duration_cast<std::chrono::nanoseconds>(t3 - t2).count();
+	delta = ((sensor3 - sensor2) / diff2) - ((sensor2 - sensor1) / diff1);
+	cout << "delta is: " << delta; 
+
+
+
+
+
+
+	
+} 
